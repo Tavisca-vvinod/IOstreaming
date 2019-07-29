@@ -7,9 +7,7 @@ public class FileReader {
     public String readFile(String fileName) throws FileNotFoundException {
         StringBuilder contents= new StringBuilder();
         FileInputStream fileInputStream=new FileInputStream(fileName);
-
         BufferedInputStream bufferedInputStream= new BufferedInputStream(fileInputStream);
-
         try(bufferedInputStream) {
             byte [] buffer =  new byte[8];
             while ( bufferedInputStream.read(buffer)>0)
