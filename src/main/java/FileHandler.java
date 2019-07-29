@@ -18,7 +18,7 @@ public class FileHandler {
     }
     private static void writeFileContents() {
         FileWriter myFileWriter= new FileWriter();
-        String data = "Hello! How are you toooday?";
+        String data = "\nHello! How are you toooday?";
         try {
             myFileWriter.writeFile("DataFile.txt", data);
         } catch (FileNotFoundException e) {
