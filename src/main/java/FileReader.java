@@ -4,15 +4,18 @@ import java.io.IOException;
 
 public class FileReader {
     public String readFile(String fileName) throws FileNotFoundException {
-        String contents="";
+        StringBuilder contents= new StringBuilder();
         FileInputStream fileInputStream=new FileInputStream(fileName);
         try(fileInputStream) {
-            byte [] buffer =  new byte[fileInputStream.available()];
-            fileInputStream.read(buffer);
-            contents=new String(buffer);
+            byte [] buffer =  new byte[8];
+            while ( fileInputStream.read(buffer)>0)
+            {
+                contents.append(new String(buffer));
+                buffer =  new byte[8];
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return contents;
+        return contents.toString();
     }
 }
